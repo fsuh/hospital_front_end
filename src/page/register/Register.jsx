@@ -1,13 +1,14 @@
 import React from "react";
+import BtnBackMain from "../../component/button/BtnBackMain";
+import BtnSubmit from "../../component/button/BtnSubmit";
 
 export default function Register() {
-
   return (
     <div className="h-screen md:flex">
       <div className="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center hidden">
         <img src={require("./img/bg.jpg")} alt="" className="bg-cover h-full" />
       </div>
-      <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
+      <div className="flex md:w-1/2 justify-center py-10 items-center bg-white relative">
         <form className="bg-white">
           <h1 className="text-gray-800 font-bold text-2xl mb-1">register !</h1>
           <p className="text-sm font-normal text-gray-600 mb-7">Welcome new customer</p>
@@ -49,8 +50,10 @@ export default function Register() {
             </svg>
             <input className="pl-2 outline-none border-none" type="text" name id placeholder="Password" />
           </div>
-      
-          <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">Forgot Password ?</span>
+          <div className="flex flex-col space-y-5">
+            <BtnSubmit message={"Submit"}></BtnSubmit>
+            <BtnBackMain></BtnBackMain>
+          </div>
         </form>
       </div>
     </div>

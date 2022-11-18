@@ -1,10 +1,12 @@
 import React from "react";
+import BtnBackMain from "../../component/button/BtnBackMain";
+import BtnSubmit from "../../component/button/BtnSubmit";
 
 export default function Login() {
   return (
     <div className="h-screen md:flex">
       <div className="relative overflow-hidden md:flex w-1/2 bg-gradient-to-tr from-blue-800 to-purple-700 i justify-around items-center hidden">
-        <img src={require("./img/bg.jpg")}  alt="" className="bg-cover h-full" />
+        <img src={require("./img/bg.jpg")} alt="" className="bg-cover h-full" />
       </div>
       <div className="flex md:w-1/2 justify-center py-10 items-center bg-white">
         <form className="bg-white">
@@ -48,10 +50,11 @@ export default function Login() {
             </svg>
             <input className="pl-2 outline-none border-none" type="text" name id placeholder="Password" />
           </div>
-          <button type="submit" className="block w-full bg-indigo-600 mt-4 py-2 rounded-2xl text-white font-semibold mb-2">
-            Login
-          </button>
-          <span className="text-sm ml-2 hover:text-blue-500 cursor-pointer">Forgot Password ?</span>
+          <BtnSubmit message={"Submit"}></BtnSubmit>
+          <div className="flex justify-between mt-5">
+            <span className="text-sm ml-2  hover:text-blue-500 cursor-pointer">Forgot Password ?</span>
+            <BtnBackMain></BtnBackMain>
+          </div>
         </form>
       </div>
     </div>
