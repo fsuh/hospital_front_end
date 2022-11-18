@@ -9,7 +9,7 @@ import style from "./css/header.module.css";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import UserAvatar from "../component/avatar/UserAvatar";
 import BtnLogin from "../component/button/BtnLogin";
 import BtnRegister from "../component/button/BtnRegister";
@@ -21,7 +21,6 @@ export default function Header(props) {
   const handleChange = (event, newValue) => {
     setValue(newValue);
   };
-
   const navigate = useNavigate();
   return (
     <div className="flex flex-col w-full ">
