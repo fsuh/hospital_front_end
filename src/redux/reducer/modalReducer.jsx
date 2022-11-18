@@ -1,5 +1,4 @@
-import { CLOSE_MODAL, OPEN_MODAL } from "../../util/action";
-const { createReducer, createSlice } = require("@reduxjs/toolkit");
+const {  createSlice } = require("@reduxjs/toolkit");
 const initalState = {
   modal: false,
   infor: null,

@@ -6,12 +6,13 @@ import YouTubeIcon from "@mui/icons-material/YouTube";
 import GoogleIcon from "@mui/icons-material/Google";
 import LinkedInIcon from "@mui/icons-material/LinkedIn";
 import style from "./css/header.module.css";
-import Avatar from "@mui/material/Avatar";
 import Box from "@mui/material/Box";
 import Tabs from "@mui/material/Tabs";
 import Tab from "@mui/material/Tab";
 import { useNavigate } from "react-router-dom";
-
+import UserAvatar from "../component/avatar/UserAvatar";
+import BtnLogin from "../component/button/BtnLogin";
+import BtnRegister from "../component/button/BtnRegister";
 const navItems = ["/", "post", "hospital", "shop"];
 
 export default function Header(props) {
@@ -43,7 +44,9 @@ export default function Header(props) {
           <YouTubeIcon fontSize="large"></YouTubeIcon>
           <GoogleIcon fontSize="large"></GoogleIcon>
           <LinkedInIcon fontSize="large"></LinkedInIcon>
-          <Avatar alt="Remy Sharp" src="https://i.pravatar.cc/300" />
+          <UserAvatar></UserAvatar>
+          <BtnLogin></BtnLogin>
+          <BtnRegister></BtnRegister>
         </div>
       </div>
       {/* header bottom */}

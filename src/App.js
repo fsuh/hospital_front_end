@@ -9,6 +9,7 @@ import Register from './page/register/Register';
 import Shopping from './page/shopping/Shopping';
 import Template from './template/Template';
 import MarkEmailReadIcon from "@mui/icons-material/MarkEmailRead";
+import Portfolio from './page/portfolio/Portfolio';
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
           <Route path=':id' element={<BookingForm></BookingForm>} ></Route>
         </Route>
         <Route path='shop' element={<Shopping></Shopping>}></Route>
+        <Route path='portfolio' element={<Portfolio></Portfolio>}></Route>
       </Route>
       <Route path="*" element={<Navigate to="/" replace />} />
 

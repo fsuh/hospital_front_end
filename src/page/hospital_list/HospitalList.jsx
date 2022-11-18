@@ -4,66 +4,16 @@ import React, { Fragment, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import ModalHospitalInfor from "../../component/modal/ModalHospitalInfor";
 import { open_modal } from "../../redux/reducer/modalReducer";
-const hospitalList = [
-  {
-    id: "01201",
-    orderNum: "7",
-    hospitalName: "Vanhan Vaasan sairaala",
-    address: "PL 13",
-    postinumero: "65381",
-    location: "Vaasa",
-    resisdentCode: "905",
-    city: "Vaasa",
-    language: "fi",
-    organizationId: "01201",
-    organizationName: "Vanhan Vaasan sairaala",
-    serviceId: "130",
-    Service: "Valtion mielisairaala",
-  },
-  {
-    id: "01203",
-    orderNum: "7",
-    hospitalName: "Vanhan Vaasan sairaala",
-    address: "PL 13",
-    postinumero: "65381",
-    location: "Vaasa",
-    resisdentCode: "905",
-    city: "Vaasa",
-    language: "fi",
-    organizationId: "01201",
-    organizationName: "Vanhan Vaasan sairaala",
-    serviceId: "130",
-    Service: "Valtion mielisairaala",
-  },
-  {
-    id: "01205",
-    orderNum: "7",
-    hospitalName: "Järvi-Pohjanmaan yhteistoiminta-alue sosiaalitoimi/Alarinteen asuntola",
-    address: "Niuvankuja 65",
-    postinumero: "65381",
-    location: "Vaasa",
-    resisdentCode: "905",
-    city: "Vaasa",
-    language: "fi",
-    organizationId: "01201",
-    organizationName: "Vanhan Vaasan sairaala",
-    serviceId: "130",
-    Service: "Valtion mielisairaala",
-  },
-];
 
 export default function HospitalList() {
+  const hospitalList = useSelector((state) => state.hospitalReducer.hospitals);
+
   const [hospitals, setHospitalList] = useState(hospitalList);
-  const [modal, setModal] = useState(false);
-
-  const data = useSelector((state) => state.modalReducer);
-
   const dispatch = useDispatch();
-  console.log(data);
+
   const searchHostpital = (e) => {
     if (e.target.value) {
       const list = hospitals.filter((hospital) => hospital.hospitalName.toLowerCase().includes(e.target.value.toLowerCase()));
-      console.log(list);
       setHospitalList(() => {
         return list;
       });
@@ -71,7 +21,12 @@ export default function HospitalList() {
       setHospitalList(hospitalList);
     }
   };
-
+  const searchById = (id) => {
+    if (id) {
+      const list = hospitals.filter((hospital) => hospital.id.toLowerCase().includes(id.toLowerCase()));
+      return list;
+    }
+  };
   return (
     <div className="bg-slate-300">
       <ModalHospitalInfor></ModalHospitalInfor>
@@ -137,11 +92,13 @@ export default function HospitalList() {
                       Donec rutrum congue leo eget malesuada. Nulla porttitor accumsan tincidunt. Vestibulum ante ipsum primis.
                     </p>
                     <button
+                      className="bg-gray-200 px-3 py-1 rounded-full text-xs font-medium text-gray-800 hidden md:block"
                       onClick={() => {
-                        dispatch(open_modal({ infor: item }));
+                        let list = searchById(item.id);
+                        dispatch(open_modal({ infor: list }));
                       }}
                     >
-                      open modal
+                      view details{" "}
                     </button>
                     <div className="flex justify-between">
                       <p className="text-xl font-black text-gray-800">
